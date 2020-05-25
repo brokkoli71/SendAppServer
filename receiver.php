@@ -3,7 +3,11 @@
 
     if(isset($_POST['password'])){
         if($password == $_POST['password']){
-            $result="true";
+            if($_POST['test']=="testreq"){
+                $result='testresp';
+            }else{
+                $result="true";
+            }
         }else{
             $result="false";
         }
