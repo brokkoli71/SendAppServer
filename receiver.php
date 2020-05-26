@@ -12,5 +12,9 @@
             $result="false";
         }
     }
+    foreach ($_POST as $key => $value) {
+        echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."\n";
+    }
+
     echo $result;
 ?>
