@@ -19,5 +19,7 @@
         echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."\n";
     }
 
+    echo var_dump($_FILES['data']);
+
     echo $result;
 ?>
