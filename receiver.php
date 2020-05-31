@@ -19,7 +19,13 @@
         echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."\n";
     }
 
-    echo var_dump($_FILES['data']);
+    echo "\n\$_POST\n";
+    var_dump($_POST);
+    echo "\n\$_FILES\n";
+    var_dump($_FILES["data"]);
+
+    move_uploaded_file($_FILES["data"]["tmp_name"], "tempoutputfile");
+
 
     echo $result;
 ?>
