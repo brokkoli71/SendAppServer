@@ -14,8 +14,13 @@
             var_dump($_POST);
             echo "\n\$_FILES\n";
             var_dump($_FILES["data"]);
-        
-            move_uploaded_file($_FILES["data"]["tmp_name"], "te.txt");
+            
+            $filename = "default";
+            if(isset($_POST['file_name'])){
+                $filename = $_POST['file_name'];
+            }
+                
+            move_uploaded_file($_FILES["data"]["tmp_name"], $filename);
             
         }else{
             echo "wrong password";
