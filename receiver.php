@@ -26,6 +26,4 @@
             echo "wrong password";
         }
     }
-    
-
 ?>
