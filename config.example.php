@@ -1,4 +1,7 @@
 <?php
 $password = "password";
-$db = new mysqli('example.com.mysql', 'user', 'password', 'database');
+$db_url = 'example.com.mysql';
+$db_user = 'user';
+$db_pwd = 'password';
+$db_name = 'database';
 ?>
