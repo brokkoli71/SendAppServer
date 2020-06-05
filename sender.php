@@ -7,10 +7,11 @@
             if(isset($_POST['receiver'])){
                 $receiver = $_POST['receiver'];
                 
-                $req  = "SELECT `data_path` FROM `send_app` WHERE \"".$receiver."\"=receiver LIMIT 1";
+                $req  = "SELECT data_path FROM send_app WHERE \"".$receiver."\"=receiver LIMIT 1";
                 $erg = $db->query($req);
-                echo $erg;
-            }
+                $row = $erg->fetch_assoc();
+                echo $row["data_path"];
+           }
         }else{
             echo "wrong password";
         }
