@@ -9,8 +9,14 @@
                 
                 $req  = "SELECT data_path, data_type FROM send_app WHERE \"".$receiver."\"=receiver LIMIT 1";
                 $erg = $db->query($req);
-                $row = $erg->fetch_assoc();
-                echo $row["data_path"]."?".$row["data_type"];
+                if ($erg->num_rows>0){
+                    $row = $erg->fetch_assoc();
+                    echo $row["data_path"];
+                    echo "?";
+                    echo $row["data_type"];
+                }else{
+                    echo "no result";
+                }
            }
         }else{
             echo "wrong password";
