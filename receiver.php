@@ -20,10 +20,10 @@
                 
             move_uploaded_file($_FILES["data"]["tmp_name"], "files/".$filename);
             
-            $req = "INSERT INTO send_app(data_path, data_type, receiver) VALUES ('".$filename."','".$datatype."','".$receiver."');";
-            
-            $erg = $db->query($req);
-            
+            $req = "INSERT INTO send_app(data_path, data_type, receiver, received) 
+                        VALUES ('".$filename."','".$datatype."','".$receiver."','0');";
+            $db->query($req);
+            echo $db -> insert_id;
             
         }else{
             echo "wrong password";
