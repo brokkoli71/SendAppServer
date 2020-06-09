@@ -8,7 +8,7 @@
                 $task_id = $_POST['task_id'];
                 $error = false;
 
-                $req  = "SELECT data_path FROM send_app WHERE send_app.id = \"".$task_id."\";";
+                $req  = "SELECT data_path FROM send_app WHERE send_app.id = \"".$task_id."\" LIMIT 1;";
                 $erg = $db->query($req);
 
                 if ($erg->num_rows>0){
@@ -18,12 +18,12 @@
                         $error = true;
                     }
                 }
-
-                $req  = "UPDATE send_app SET received = "1" WHERE send_app.id = \"".$task_id."\";";
-                //use that later for not storing data
-                //$req  = "DELETE FROM send_app WHERE send_app.id = \"".$task_id."\";";
-                $erg = $db->query($req);
                 
+                $req  = "UPDATE send_app SET received = \"1\" WHERE send_app.id = \"".$task_id."\" LIMIT 1;";
+                //use that later for not storing data:
+                //$req  = "DELETE FROM send_app WHERE send_app.id = \"".$task_id."\" LIMIT 1;";
+                $erg = $db->query($req);
+                //might check for success later
             }
         }else{
             echo "wrong password";

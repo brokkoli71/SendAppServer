@@ -7,7 +7,7 @@
             if(isset($_POST['receiver'])){
                 $receiver = $_POST['receiver'];
                 
-                $req  = "SELECT id, data_path, data_type FROM send_app WHERE \"".$receiver."\"=receiver LIMIT 1";
+                $req  = "SELECT id, data_path, data_type FROM send_app WHERE \"".$receiver."\"=receiver AND received = \"0\" LIMIT 1";
                 $erg = $db->query($req);
                 if ($erg->num_rows>0){
                     $row = $erg->fetch_assoc();
