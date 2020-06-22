@@ -24,6 +24,7 @@
                 //$req  = "DELETE FROM send_app WHERE send_app.id = \"".$task_id."\" LIMIT 1;";
                 $erg = $db->query($req);
                 //might check for success later
+                echo "success";
             }
         }else{
             echo "wrong password";
